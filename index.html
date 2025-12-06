@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chá Secreto - Emagreça em 30 Dias</title>
+    <title>Chá Secreto - Transforme Sua Vida 🌿</title>
     <style>
         * {
             margin: 0;
@@ -12,8 +12,8 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: #000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #fff5f9 50%, #ffe8f3 100%);
             color: #333;
             overflow-x: hidden;
         }
@@ -24,76 +24,62 @@
             padding: 20px;
         }
 
-        /* Video Section */
-        .video-section {
-            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
-            padding: 0;
-            margin: 0;
-            border-bottom: 5px solid #ff6b6b;
-        }
-
-        .video-message {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
-            color: white;
-            padding: 50px 20px;
+        header {
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+            color: white;
+            box-shadow: 0 4px 20px rgba(255, 107, 157, 0.3);
         }
 
-        .video-message::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .video-message h2 {
+        header h1 {
             font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-            animation: glow 2s ease-in-out infinite;
-            position: relative;
-            z-index: 1;
-        }
-
-        @keyframes glow {
-            0%, 100% { text-shadow: 0 0 20px rgba(255,255,255,0.5), 0 0 30px rgba(255,107,107,0.3); }
-            50% { text-shadow: 0 0 30px rgba(255,255,255,0.8), 0 0 40px rgba(255,107,107,0.5); }
-        }
-
-        .video-message p {
-            font-size: 1.5em;
             margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #ffd700;
+            color: #c44569;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .video-section {
+            margin: 40px 0;
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
 
         .video-container {
             position: relative;
-            width: 100%;
-            max-width: 100%;
-            background: #000;
-            overflow: hidden;
-        }
-
-        .video-wrapper {
-            position: relative;
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(255, 107, 157, 0.2);
         }
 
-        .video-wrapper iframe {
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -102,763 +88,510 @@
             border: none;
         }
 
-        /* Header Hero */
-        .hero {
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-            padding: 80px 20px;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><circle cx="200" cy="200" r="100" fill="%2300ff88" opacity="0.1"/><circle cx="1000" cy="600" r="150" fill="%23ff6b6b" opacity="0.1"/><circle cx="600" cy="400" r="120" fill="%23ffd93d" opacity="0.1"/></svg>');
-            animation: float 20s ease-in-out infinite;
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            border-left: 5px solid #ff6b9d;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-30px); }
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(255, 107, 157, 0.2);
         }
 
-        .hero h1 {
-            font-size: 4em;
-            margin-bottom: 20px;
-            text-shadow: 4px 4px 8px rgba(0,0,0,0.7);
-            animation: slideInDown 1s ease-out;
-            position: relative;
-            z-index: 1;
-            background: linear-gradient(45deg, #fff, #ffd93d, #00ff88);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero .subtitle {
-            font-size: 2em;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            animation: slideInUp 1s ease-out 0.3s both;
-            position: relative;
-            z-index: 1;
+        .benefit-card h3 {
+            color: #c44569;
+            margin-bottom: 15px;
+            font-size: 1.4em;
         }
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
             color: white;
-            padding: 25px 60px;
-            font-size: 1.8em;
+            padding: 20px 50px;
+            font-size: 1.4em;
             font-weight: bold;
             text-decoration: none;
             border-radius: 50px;
-            box-shadow: 0 15px 40px rgba(238, 90, 36, 0.6);
-            transition: all 0.3s ease;
-            animation: pulseGlow 2s infinite;
-            border: 3px solid #fff;
+            margin: 20px 10px;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
             cursor: pointer;
-            position: relative;
-            z-index: 1;
+            border: none;
         }
 
         .cta-button:hover {
-            transform: translateY(-8px) scale(1.08);
-            box-shadow: 0 20px 50px rgba(238, 90, 36, 0.8);
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(255, 107, 157, 0.6);
         }
 
-        @keyframes pulseGlow {
-            0%, 100% {
-                box-shadow: 0 15px 40px rgba(238, 90, 36, 0.6);
-            }
-            50% {
-                box-shadow: 0 20px 60px rgba(238, 90, 36, 0.9), 0 0 30px rgba(255, 107, 107, 0.5);
-            }
-        }
-
-        /* Seção de Benefícios */
-        .benefits {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 80px 20px;
-            margin: 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .benefits::before {
-            content: '✨';
-            position: absolute;
-            font-size: 200px;
-            opacity: 0.05;
-            top: 20%;
-            left: 10%;
-            animation: spin 30s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .benefits h2 {
+        .cta-section {
             text-align: center;
-            font-size: 3em;
-            color: #fff;
-            margin-bottom: 60px;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-            animation: fadeInScale 1s ease-out;
-        }
-
-        @keyframes fadeInScale {
-            0% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .benefit-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .benefit-card {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 25px;
-            text-align: center;
-            transition: all 0.4s ease;
-            border: 3px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .benefit-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
-            transform: scale(0);
-            transition: transform 0.5s ease;
-        }
-
-        .benefit-card:hover::before {
-            transform: scale(1);
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-15px) scale(1.03);
-            border-color: #ff6b6b;
-            box-shadow: 0 20px 50px rgba(255, 107, 107, 0.4);
-        }
-
-        .benefit-icon {
-            font-size: 4em;
-            margin-bottom: 25px;
-            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .benefit-card h3 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-        }
-
-        .benefit-card p {
-            color: #555;
-            line-height: 1.8;
-            font-size: 1.1em;
-        }
-
-        /* Countdown Timer */
-        .countdown-section {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            margin: 0;
-            box-shadow: 0 20px 60px rgba(238, 90, 36, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .countdown-section::before {
-            content: '⏰';
-            position: absolute;
-            font-size: 300px;
-            opacity: 0.05;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .countdown-section h3 {
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-        }
-
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-
-        .countdown-item {
-            background: rgba(255,255,255,0.2);
-            padding: 30px;
+            margin: 50px 0;
+            padding: 50px 20px;
+            background: white;
             border-radius: 20px;
-            min-width: 120px;
-            border: 3px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
 
-        .countdown-item:hover {
-            transform: scale(1.1);
-            background: rgba(255,255,255,0.3);
+        /* ============================================
+           NOTIFICAÇÕES DE COMPRA - AQUI VOCÊ PODE PERSONALIZAR
+           ============================================ */
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: none;
+            max-width: 350px;
+            z-index: 1000;
+            animation: slideIn 0.5s ease-out;
+            border-left: 5px solid #4CAF50;
         }
 
-        .countdown-item .number {
-            font-size: 4em;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        @keyframes slideIn {
+            from {
+                transform: translateX(-400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
-        .countdown-item .label {
-            font-size: 1em;
-            text-transform: uppercase;
-            margin-top: 10px;
+        .notification.show {
+            display: block;
         }
 
-        /* Depoimentos */
-        .testimonials {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            padding: 80px 20px;
-            margin: 0;
-        }
-
-        .testimonials h2 {
-            text-align: center;
-            font-size: 3em;
-            color: #fff;
-            margin-bottom: 60px;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .testimonial-card {
-            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-            padding: 40px;
-            border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-            border-left: 5px solid #ff6b6b;
-            position: relative;
-        }
-
-        .testimonial-card::before {
-            content: '💬';
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 3em;
-            opacity: 0.1;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(255, 107, 107, 0.4);
-        }
-
-        .testimonial-header {
+        .notification-header {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
-        .testimonial-avatar {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .notification-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2em;
+            color: white;
+            font-size: 24px;
             margin-right: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        .testimonial-info h4 {
-            color: #333;
-            font-size: 1.3em;
+        .notification-content h4 {
+            color: #c44569;
             margin-bottom: 5px;
         }
 
-        .testimonial-info .location {
+        .notification-content p {
             color: #666;
             font-size: 0.9em;
         }
 
-        .stars {
-            color: #ffd93d;
-            font-size: 1.3em;
-            margin-bottom: 15px;
+        .notification-time {
+            color: #999;
+            font-size: 0.8em;
+            margin-top: 8px;
         }
 
-        .testimonial-card p {
-            color: #555;
-            line-height: 1.8;
-            font-size: 1.05em;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-result {
-            background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
-            color: white;
+        .discount-banner {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            color: #c44569;
             padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonials {
+            margin: 50px 0;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 25px;
             border-radius: 15px;
-            font-weight: bold;
-            text-align: center;
-            font-size: 1.2em;
-            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
-        }
-
-        /* Footer CTA */
-        .footer-cta {
-            text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            margin: 0;
-        }
-
-        .footer-cta h2 {
-            font-size: 3em;
-            margin-bottom: 40px;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-        }
-
-        .price {
-            font-size: 4em;
-            font-weight: bold;
-            margin: 30px 0;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-            animation: priceGlow 2s infinite;
-        }
-
-        @keyframes priceGlow {
-            0%, 100% {
-                text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-            }
-            50% {
-                text-shadow: 0 0 30px rgba(255,255,255,0.8), 3px 3px 6px rgba(0,0,0,0.3);
-            }
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            font-size: 0.5em;
-            opacity: 0.7;
-        }
-
-        .guarantee-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 20px 40px;
-            border-radius: 20px;
             margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ff6b9d;
+            flex-shrink: 0;
+        }
+
+        .testimonial-content {
+            flex: 1;
+        }
+
+        .testimonial-card .stars {
+            color: #ffd700;
             font-size: 1.2em;
-            border: 2px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(10px);
+            margin-bottom: 10px;
         }
 
-        /* Animações */
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .testimonial-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
         }
 
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .verified-badge {
+            background: #4CAF50;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
         }
 
-        /* Responsividade */
+        .testimonial-date {
+            color: #999;
+            font-size: 0.85em;
+            margin-top: 10px;
+        }
+
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5em;
-            }
-            
-            .hero .subtitle {
-                font-size: 1.3em;
+            .testimonial-card {
+                flex-direction: column;
+                text-align: center;
             }
 
-            .video-message h2 {
+            .testimonial-avatar {
+                margin: 0 auto;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #c44569;
+            color: white;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
                 font-size: 2em;
             }
-
+            
             .cta-button {
-                font-size: 1.3em;
-                padding: 20px 40px;
+                padding: 15px 30px;
+                font-size: 1.2em;
             }
 
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .countdown-item {
-                min-width: 80px;
-            }
-
-            .countdown-item .number {
-                font-size: 2.5em;
-            }
-
-            .price {
-                font-size: 2.5em;
+            .notification {
+                left: 10px;
+                right: 10px;
+                max-width: none;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Video Section at Top -->
-    <div class="video-section">
-        <div class="video-message">
-            <h2>🌿 ASSISTA O VÍDEO REVELADOR 🌿</h2>
-            <p>Descubra o Segredo de Milhares de Mulheres!</p>
-            <p style="font-size: 1.2em;">👇 Aperte o Play e Prepare-se para se Surpreender 👇</p>
-        </div>
-        <div class="video-container">
-            <div class="video-wrapper">
-                <iframe 
-                    id="youtubeVideo"
-                    src="https://www.youtube.com/embed/Kvo3kbGCABI?autoplay=1&mute=0&controls=1&rel=0&modestbranding=1" 
-                    allow="autoplay; encrypted-media" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </div>
+    <div class="discount-banner">
+        🔥 SUPER DESCONTO HOJE! 50% OFF - ESTOQUE LIMITADO! 🔥
     </div>
 
-    <div class="hero">
-        <div class="container">
-            <h1>✨ CHÁ SECRETO ✨</h1>
-            <p class="subtitle">🔥 Emagreça até 12kg em 30 Dias 🔥</p>
-            <p style="font-size: 1.5em; margin-bottom: 30px;">Fórmula 100% Natural que Derrete Gordura e Desincha Seu Corpo!</p>
+    <header>
+        <h1>🌿 Chá Secreto 🍵</h1>
+        <p>Transforme Sua Vida com o Poder da Natureza</p>
+        <div class="badge">✨ FÓRMULA 100% NATURAL ✨</div>
+    </header>
+
+    <div class="container">
+        <div class="video-section">
+            <h2 style="color: #c44569; margin-bottom: 25px; font-size: 2em;">Descubra o Segredo! 💫</h2>
+            <div class="video-container">
+                <!-- ============================================
+                     LINK DO VÍDEO CONFIGURADO
+                     Para trocar: use o formato https://www.youtube.com/embed/ID_DO_VIDEO
+                     ============================================ -->
+                <iframe src="https://www.youtube.com/embed/Kvo3kbGCABI" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2 style="color: #c44569; font-size: 2.5em; margin-bottom: 20px;">Garanta o Seu Agora! 💖</h2>
+            <p style="font-size: 1.2em; margin-bottom: 30px; color: #666;">Aproveite nosso desconto exclusivo antes que acabe!</p>
             
-            <!-- BOTÃO DE COMPRA 1 -->
-            <a href="https://seu-link-de-pagamento.com" class="cta-button">
-                🛒 SIM! QUERO EMAGRECER AGORA 🛒
-            </a>
+            <!-- ============================================
+                 BOTÕES DE COMPRA - COLE SEUS LINKS AQUI
+                 Substitua o # pelos links reais de checkout
+                 ============================================ -->
+            <a href="https://pay.kiwify.com.br/umvXfs8?afid=E7s38DxV" class="cta-button">🛒 COMPRAR AGORA</a>
+            <a href="https://pay.kiwify.com.br/umvXfs8?afid=E7s38DxV" class="cta-button" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);">💳 PAGAMENTO SEGURO</a>
         </div>
-    </div>
 
-    <div class="benefits">
-        <div class="container">
-            <h2>✨ TRANSFORMAÇÃO COMPLETA EM 30 DIAS ✨</h2>
+        <h2 style="text-align: center; color: #c44569; font-size: 2.5em; margin: 50px 0 30px;">✨ Benefícios Incríveis ✨</h2>
+        
+        <div class="benefits">
+            <div class="benefit-card">
+                <h3>🔥 Acelera o Metabolismo</h3>
+                <p>Propriedades termogênicas que queimam gordura 24 horas por dia, transformando seu corpo em uma máquina de queimar calorias!</p>
+            </div>
             
-            <div class="benefit-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">🔥</div>
-                    <h3>Queima Gordura 24h</h3>
-                    <p>Metabolismo acelerado que derrete gordura mesmo enquanto você dorme! Resultado visível em 48 horas!</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">💧</div>
-                    <h3>Desincha Rápido</h3>
-                    <p>Elimina até 3kg de líquidos retidos! Barriga chapada e corpo definido em poucos dias!</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">💎</div>
-                    <h3>Beleza Radiante</h3>
-                    <p>Pele iluminada, cabelos brilhosos e unhas fortes! Você vai se sentir uma nova mulher!</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">🧘‍♀️</div>
-                    <h3>Sem Ansiedade</h3>
-                    <p>Controla a compulsão alimentar e aquela vontade de comer doces! Adeus ansiedade!</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">🩺</div>
-                    <h3>Saúde Total</h3>
-                    <p>Regula açúcar, triglicérides e colesterol! Seus exames vão impressionar seu médico!</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">⚡</div>
-                    <h3>Energia Máxima</h3>
-                    <p>Disposição de sobra para suas tarefas diárias! Diga adeus ao cansaço e indisposição!</p>
-                </div>
+            <div class="benefit-card">
+                <h3>💧 Elimina o Inchaço</h3>
+                <p>Ação diurética poderosa que libera o excesso de líquidos retidos, revelando uma silhueta mais esculpida e definida!</p>
             </div>
-
-            <div style="text-align: center; margin-top: 60px;">
-                <!-- BOTÃO DE COMPRA 2 -->
-                <a href="https://seu-link-de-pagamento.com" class="cta-button">
-                    💚 QUERO MINHA TRANSFORMAÇÃO 💚
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="countdown-section">
-        <div class="container">
-            <h3>⚠️ ATENÇÃO: PROMOÇÃO ACABA EM ⚠️</h3>
-            <div class="countdown">
-                <div class="countdown-item">
-                    <div class="number" id="days">00</div>
-                    <div class="label">Dias</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="number" id="hours">00</div>
-                    <div class="label">Horas</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="number" id="minutes">00</div>
-                    <div class="label">Minutos</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="number" id="seconds">00</div>
-                    <div class="label">Segundos</div>
-                </div>
-            </div>
-            <p style="font-size: 1.5em; margin-top: 20px;">🔥 Estoque Limitado! Garanta o seu AGORA! 🔥</p>
-        </div>
-    </div>
-
-    <div class="testimonials">
-        <div class="container">
-            <h2>💬 VEJA O QUE NOSSAS CLIENTES ESTÃO DIZENDO</h2>
             
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">👩</div>
-                        <div class="testimonial-info">
-                            <h4>Maria Silva</h4>
-                            <p class="location">São Paulo - SP</p>
-                        </div>
-                    </div>
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Gente, eu não acreditava que ia funcionar! Mas em 30 dias perdi 10kg! Minha barriga sumiu, minhas roupas estão folgadas e minha autoestima lá em cima! Melhor compra da minha vida!"</p>
-                    <div class="testimonial-result">✨ PERDEU 10KG EM 30 DIAS ✨</div>
-                </div>
+            <div class="benefit-card">
+                <h3>💖 Controla a Ansiedade</h3>
+                <p>Acalma a ansiedade e controla os desejos impulsivos por comida, trazendo paz para sua alma!</p>
+            </div>
+            
+            <div class="benefit-card">
+                <h3>✨ Pele, Cabelo e Unhas</h3>
+                <p>Deixa você radiante com aquele brilho natural de saúde de dentro para fora!</p>
+            </div>
+            
+            <div class="benefit-card">
+                <h3>📉 Controla Açúcar e Triglicérides</h3>
+                <p>Revoluciona sua saúde, diminuindo o açúcar do sangue e controlando o triglicérides!</p>
+            </div>
+            
+            <div class="benefit-card">
+                <h3>⚡ Mais Energia e Leveza</h3>
+                <p>Sinta-se mais leve, energizada e radiante a cada gole deste abraço reconfortante!</p>
+            </div>
+        </div>
 
-                <div class="testimonial-card">
+        <div class="testimonials">
+            <h2 style="text-align: center; color: #c44569; font-size: 2.5em; margin-bottom: 30px;">💬 O Que Nossas Clientes Dizem</h2>
+            
+            <div class="testimonial-card">
+                <img src="https://i.pravatar.cc/150?img=5" alt="Maria Silva" class="testimonial-avatar">
+                <div class="testimonial-content">
                     <div class="testimonial-header">
-                        <div class="testimonial-avatar">👩</div>
-                        <div class="testimonial-info">
-                            <h4>Ana Paula Costa</h4>
-                            <p class="location">Rio de Janeiro - RJ</p>
+                        <div>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p><strong>Maria Silva, 34 anos</strong></p>
                         </div>
+                        <span class="verified-badge">✓ Compra Verificada</span>
                     </div>
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Estava totalmente desacreditada depois de tentar tantas dietas! O Chá Secreto mudou tudo! Em apenas 2 dias já desinchei, e agora 30 dias depois estou 8kg mais magra! Meu marido não para de me elogiar!"</p>
-                    <div class="testimonial-result">💪 EMAGRECEU 8KG E DESINHOU O CORPO 💪</div>
+                    <p>"Perdi 8kg em 2 meses e minha pele está incrível! O Chá Secreto mudou minha vida completamente. Não tenho mais ansiedade e durmo muito melhor. Meus exames de sangue melhoraram muito, o médico ficou impressionado! Recomendo de olhos fechados! 💖"</p>
+                    <p class="testimonial-date">📅 Avaliado em 15 de novembro de 2024</p>
                 </div>
-
-                <div class="testimonial-card">
+            </div>
+            
+            <div class="testimonial-card">
+                <img src="https://i.pravatar.cc/150?img=9" alt="Ana Paula" class="testimonial-avatar">
+                <div class="testimonial-content">
                     <div class="testimonial-header">
-                        <div class="testimonial-avatar">👩</div>
-                        <div class="testimonial-info">
-                            <h4>Juliana Santos</h4>
-                            <p class="location">Belo Horizonte - MG</p>
+                        <div>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p><strong>Ana Paula Rodrigues, 42 anos</strong></p>
                         </div>
+                        <span class="verified-badge">✓ Compra Verificada</span>
                     </div>
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Meu médico ficou IMPRESSIONADO com meus exames! Além de perder 12kg, meu açúcar normalizou e o colesterol abaixou! E olha que eu só tomei o chá! Agora toda minha família está tomando!"</p>
-                    <div class="testimonial-result">🩺 12KG + SAÚDE PERFEITA 🩺</div>
+                    <p>"Finalmente consegui controlar minha ansiedade e os desejos por doces! Estou me sentindo mais leve e feliz. Meu triglicérides que estava altíssimo normalizou. Já perdi 6kg e 5cm de cintura. Esse chá é um milagre da natureza! Estou na terceira caixinha e não vou parar mais! 🌿"</p>
+                    <p class="testimonial-date">📅 Avaliado em 22 de novembro de 2024</p>
                 </div>
-
-                <div class="testimonial-card">
+            </div>
+            
+            <div class="testimonial-card">
+                <img src="https://i.pravatar.cc/150?img=10" alt="Juliana Costa" class="testimonial-avatar">
+                <div class="testimonial-content">
                     <div class="testimonial-header">
-                        <div class="testimonial-avatar">👩</div>
-                        <div class="testimonial-info">
-                            <h4>Carla Mendes</h4>
-                            <p class="location">Curitiba - PR</p>
+                        <div>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p><strong>Juliana Costa, 28 anos</strong></p>
                         </div>
+                        <span class="verified-badge">✓ Compra Verificada</span>
                     </div>
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Eu sofria muito com ansiedade e comia compulsivamente. O Chá Secreto acabou com isso! Perdi 9kg e minha ansiedade praticamente sumiu! Estou me sentindo leve de verdade, fisicamente e emocionalmente!"</p>
-                    <div class="testimonial-result">🧘‍♀️ 9KG MENOS + ADEUS ANSIEDADE 🧘‍♀️</div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">👩</div>
-                        <div class="testimonial-info">
-                            <h4>Fernanda Lima</h4>
-                            <p class="location">Porto Alegre - RS</p>
-                        </div>
-                    </div>
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Tinha vergonha de ir na praia com minhas amigas. Depois do Chá Secreto tudo mudou! 11kg a menos, celulites diminuíram e minha pele está MARAVILHOSA! Já marquei as férias na praia! 😍"</p>
-                    <div class="testimonial-result">🏖️ 11KG + CORPO DE PRAIA 🏖️</div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">👩</div>
-                        <div class="testimonial-info">
-                            <h4>Patricia Oliveira</h4>
-                            <p class="location">Brasília - DF</p>
-                        </div>
-                    </div>
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Depois da gravidez eu achei que nunca mais ia voltar ao meu peso. Mas o Chá Secreto me ajudou a perder 13kg! Voltei a caber nas minhas calças favoritas e meu cabelo ficou incrivelmente mais forte!"</p>
-                    <div class="testimonial-result">👶 PÓS-GRAVIDEZ: 13KG ELIMINADOS 👶</div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">👩</div>
-                        <div class="testimonial-info">
-                            <h4>Roberta Alves</h4>
-                            <p class="location">Recife - PE</p>
-                        </div>
-                    </div>
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Tentei de TUDO antes: remédios, shakes, dietas malucas... Nada funcionava! O Chá Secreto foi a única coisa que me fez emagrecer de verdade! 10kg em 30 dias e sem sofrimento! AMEI!"</p>
-                    <div class="testimonial-result">🎯 10KG SEM SOFRIMENTO 🎯</div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">👩</div>
-                        <div class="testimonial-info">
-                            <h4>Luciana Ferreira</h4>
-                            <p class="location">Salvador - BA</p>
-                        </div>
-                    </div>
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Eu tinha depressão por causa do meu peso. O Chá Secreto não só me ajudou a perder 9kg, como melhorou meu humor completamente! Voltei a sorrir, a sair com as amigas... Me sinto VIVA de novo!"</p>
-                    <div class="testimonial-result">😊 9KG + AUTOESTIMA RENOVADA 😊</div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">👩</div>
-                        <div class="testimonial-info">
-                            <h4>Amanda Rodrigues</h4>
-                            <p class="location">Fortaleza - CE</p>
-                        </div>
-                    </div>
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p>"Minha mãe e eu tomamos juntas! Ela perdeu 8kg e eu 11kg! Além de emagrecer, minha diabetes tipo 2 melhorou muito! Agora toda a família toma e os resultados são incríveis!"</p>
-                    <div class="testimonial-result">👨‍👩‍👧 FAMÍLIA TODA EMAGRECENDO 👨‍👩‍👧</div>
+                    <p>"Meu cabelo e unhas nunca estiveram tão fortes! E eliminei todo o inchaço em apenas 2 semanas. Acordava inchada todos os dias e agora não tenho mais esse problema. Minha energia aumentou muito, estou mais disposta para tudo. Produto maravilhoso, já indiquei para todas as minhas amigas! ✨"</p>
+                    <p class="testimonial-date">📅 Avaliado em 28 de novembro de 2024</p>
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: 60px;">
-                <!-- BOTÃO DE COMPRA 3 -->
-                <a href="https://seu-link-de-pagamento.com" class="cta-button">
-                    🔥 EU TAMBÉM QUERO ESSES RESULTADOS 🔥
-                </a>
+            <div class="testimonial-card">
+                <img src="https://i.pravatar.cc/150?img=32" alt="Carla Santos" class="testimonial-avatar">
+                <div class="testimonial-content">
+                    <div class="testimonial-header">
+                        <div>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p><strong>Carla Santos, 38 anos</strong></p>
+                        </div>
+                        <span class="verified-badge">✓ Compra Verificada</span>
+                    </div>
+                    <p>"Estava com o açúcar no sangue descontrolado e em 1 mês já vi diferença nos exames! Meu médico perguntou o que eu estava fazendo diferente. Além disso, perdi medidas e me sinto muito mais leve. O melhor é que é tudo natural, sem química! Vale cada centavo! 🙏"</p>
+                    <p class="testimonial-date">📅 Avaliado em 02 de dezembro de 2024</p>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="https://i.pravatar.cc/150?img=45" alt="Fernanda Lima" class="testimonial-avatar">
+                <div class="testimonial-content">
+                    <div class="testimonial-header">
+                        <div>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p><strong>Fernanda Lima, 31 anos</strong></p>
+                        </div>
+                        <span class="verified-badge">✓ Compra Verificada</span>
+                    </div>
+                    <p>"Esse chá é divino! Tomando há 3 semanas e já eliminei 4kg. Minha barriga desincha a olhos vistos, minha digestão melhorou muito. Não tenho mais aquela sensação de peso depois de comer. E o melhor: minha pele está radiante, várias pessoas comentaram! Estou viciada (no bom sentido)! 😍"</p>
+                    <p class="testimonial-date">📅 Avaliado em 04 de dezembro de 2024</p>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="https://i.pravatar.cc/150?img=47" alt="Patricia Oliveira" class="testimonial-avatar">
+                <div class="testimonial-content">
+                    <div class="testimonial-header">
+                        <div>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <p><strong>Patricia Oliveira, 45 anos</strong></p>
+                        </div>
+                        <span class="verified-badge">✓ Compra Verificada</span>
+                    </div>
+                    <p>"Comprei sem muita expectativa, mas fui surpreendida! Em 15 dias já notei minha roupa mais folgada. Meu intestino que sempre foi preso regulou completamente. Durmo melhor, acordo mais disposta e minha TPM melhorou muito! Já comprei mais 3 caixas. Produto top demais! 💚"</p>
+                    <p class="testimonial-date">📅 Avaliado em 05 de dezembro de 2024</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section" style="background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%); color: white;">
+            <h2 style="color: white; font-size: 2.5em; margin-bottom: 20px;">🎁 Oferta Especial Por Tempo Limitado!</h2>
+            <p style="font-size: 1.5em; margin-bottom: 15px; color: white;">50% DE DESCONTO</p>
+            <p style="font-size: 1.2em; margin-bottom: 30px; color: white;">De R$ 197,00 por apenas R$ 97,00</p>
+            
+            <!-- ============================================
+                 BOTÕES DE COMPRA EXTRAS - COLE SEUS LINKS AQUI
+                 ============================================ -->
+            <a href="https://pay.kiwify.com.br/umvXfs8?afid=E7s38DxV" class="cta-button" style="background: white; color: #c44569;">🎯 QUERO APROVEITAR AGORA!</a>
+        </div>
+    </div>
+
+    <!-- Notificação de Compra -->
+    <div class="notification" id="notification">
+        <div class="notification-header">
+            <div class="notification-icon">✓</div>
+            <div class="notification-content">
+                <h4>Compra Realizada!</h4>
+                <p><span id="buyer-name"></span> de <span id="buyer-location"></span></p>
+                <p class="notification-time">Há <span id="time-ago"></span> minutos</p>
             </div>
         </div>
     </div>
 
-    <div class="footer-cta">
-        <div class="container">
-            <h2>🎁 OFERTA EXCLUSIVA HOJE 🎁</h2>
-            <div class="guarantee-badge">
-                ✅ GARANTIA DE 30 DIAS ✅<br>
-                Se não gostar, devolvemos 100% do seu dinheiro!
-            </div>
-            <div class="price">
-                <span class="old-price">De R$ 297,00</span><br>
-                Por apenas R$ 97,00
-            </div>
-            <p style="font-size: 1.5em; margin: 30px 0;">✅ Fórmula 100% Natural e Segura</p>
-            <p style="font-size: 1.5em; margin: 20px 0;">✅ Resultados Visíveis em 48 Horas</p>
-            <p style="font-size: 1.5em; margin: 20px 0;">✅ Mais de 50 Mil Mulheres Satisfeitas</p>
-            <p style="font-size: 1.5em; margin: 20px 0;">✅ Frete Grátis Para Todo Brasil</p>
-            
-            <!-- BOTÃO DE COMPRA 4 -->
-            <a href="https://seu-link-de-pagamento.com" class="cta-button" style="margin-top: 40px;">
-                🛒 GARANTIR MEU CHÁ SECRETO AGORA 🛒
-            </a>
-            
-            <p style="margin-top: 40px; font-size: 1.1em;">🔒 Pagamento 100% Seguro e Protegido</p>
-            <p style="font-size: 1em; opacity: 0.9; margin-top: 10px;">Aceitamos Pix, Cartão de Crédito e Boleto</p>
-        </div>
-    </div>
+    <footer>
+        <p>🌿 Chá Secreto - Transformando vidas através da natureza 🍵</p>
+        <p style="margin-top: 10px; font-size: 0.9em;">© 2024 - Todos os direitos reservados</p>
+    </footer>
 
     <script>
-        // Countdown Timer - 30 dias
-        const countdownDate = new Date();
-        countdownDate.setDate(countdownDate.getDate() + 30);
-        
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = countdownDate - now;
+        // ============================================
+        // SISTEMA DE NOTIFICAÇÕES FICTÍCIAS
+        // Você pode personalizar os nomes e cidades
+        // ============================================
+        const buyers = [
+            { name: "Maria Silva", location: "São Paulo, SP" },
+            { name: "Ana Paula", location: "Rio de Janeiro, RJ" },
+            { name: "Juliana Costa", location: "Belo Horizonte, MG" },
+            { name: "Carla Santos", location: "Curitiba, PR" },
+            { name: "Fernanda Lima", location: "Porto Alegre, RS" },
+            { name: "Patricia Oliveira", location: "Brasília, DF" },
+            { name: "Beatriz Alves", location: "Salvador, BA" },
+            { name: "Camila Rodrigues", location: "Fortaleza, CE" },
+            { name: "Mariana Souza", location: "Recife, PE" },
+            { name: "Gabriela Martins", location: "Manaus, AM" },
+            { name: "Luciana Pereira", location: "Goiânia, GO" },
+            { name: "Renata Barbosa", location: "Campinas, SP" },
+            { name: "Adriana Costa", location: "São Luís, MA" },
+            { name: "Tatiana Oliveira", location: "Natal, RN" },
+            { name: "Vanessa Santos", location: "João Pessoa, PB" },
+            { name: "Daniela Ferreira", location: "Teresina, PI" },
+            { name: "Roberta Lima", location: "Maceió, AL" },
+            { name: "Simone Almeida", location: "Aracaju, SE" },
+            { name: "Cristina Rocha", location: "Florianópolis, SC" },
+            { name: "Aline Martins", location: "Vitória, ES" },
+            { name: "Priscila Souza", location: "Campo Grande, MS" },
+            { name: "Bianca Carvalho", location: "Cuiabá, MT" },
+            { name: "Larissa Mendes", location: "Belém, PA" },
+            { name: "Sabrina Costa", location: "Macapá, AP" },
+            { name: "Letícia Gomes", location: "Boa Vista, RR" },
+            { name: "Viviane Dias", location: "Palmas, TO" },
+            { name: "Michele Silva", location: "Rio Branco, AC" },
+            { name: "Claudia Reis", location: "Porto Velho, RO" },
+            { name: "Elaine Monteiro", location: "Santos, SP" },
+            { name: "Natália Ribeiro", location: "Sorocaba, SP" },
+            { name: "Amanda Cardoso", location: "Ribeirão Preto, SP" },
+            { name: "Jéssica Araujo", location: "Uberlândia, MG" },
+            { name: "Raquel Fernandes", location: "Contagem, MG" },
+            { name: "Thais Martins", location: "Juiz de Fora, MG" },
+            { name: "Karina Lopes", location: "Londrina, PR" },
+            { name: "Bruna Oliveira", location: "Maringá, PR" },
+            { name: "Flávia Santos", location: "Caxias do Sul, RS" },
+            { name: "Paula Alves", location: "Pelotas, RS" },
+            { name: "Marcela Costa", location: "Canoas, RS" },
+            { name: "Solange Barros", location: "Duque de Caxias, RJ" },
+            { name: "Regina Pinto", location: "Nova Iguaçu, RJ" },
+            { name: "Helena Silva", location: "Niterói, RJ" },
+            { name: "Luana Carvalho", location: "São Gonçalo, RJ" },
+            { name: "Mônica Rocha", location: "Feira de Santana, BA" },
+            { name: "Vera Souza", location: "Vitória da Conquista, BA" },
+            { name: "Sônia Lima", location: "Camaçari, BA" },
+            { name: "Edna Martins", location: "Jaboatão, PE" },
+            { name: "Graça Ferreira", location: "Olinda, PE" },
+            { name: "Rosana Dias", location: "Caucaia, CE" },
+            { name: "Cláudia Gomes", location: "Juazeiro do Norte, CE" }
+        ];
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            const randomBuyer = buyers[Math.floor(Math.random() * buyers.length)];
+            const randomTime = Math.floor(Math.random() * 15) + 1;
 
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            document.getElementById('buyer-name').textContent = randomBuyer.name;
+            document.getElementById('buyer-location').textContent = randomBuyer.location;
+            document.getElementById('time-ago').textContent = randomTime;
 
-            if (distance < 0) {
-                document.getElementById('days').textContent = '00';
-                document.getElementById('hours').textContent = '00';
-                document.getElementById('minutes').textContent = '00';
-                document.getElementById('seconds').textContent = '00';
-            }
+            notification.classList.add('show');
+
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 5000);
         }
 
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+        // Mostrar notificação a cada 15 segundos
+        setInterval(() => {
+            showNotification();
+        }, 15000);
+
+        // Mostrar primeira notificação após 3 segundos
+        setTimeout(showNotification, 3000);
     </script>
 </body>
 </html>

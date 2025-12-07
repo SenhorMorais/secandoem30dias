@@ -27,20 +27,56 @@
         header {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
             color: white;
             box-shadow: 0 4px 20px rgba(255, 107, 157, 0.3);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            object-fit: cover;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 107, 156, 0.171) 0%, rgba(196, 69, 105, 0.85) 100%);
+            z-index: 1;
+        }
+
+        header > * {
+            position: relative;
+            z-index: 2;
         }
 
         header h1 {
             font-size: 3em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
         }
 
         header p {
             font-size: 1.3em;
             opacity: 0.95;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .badge {
@@ -213,6 +249,171 @@
             margin-top: 8px;
         }
 
+        /* ============================================
+           BOTÃO FLUTUANTE DO WHATSAPP
+           ============================================ */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: pulse-whatsapp 2s infinite;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-button svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        @keyframes pulse-whatsapp {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(37, 211, 102, 0.7);
+            }
+        }
+
+        /* Chat Box */
+        .whatsapp-chat {
+            position: fixed;
+            bottom: 170px;
+            right: 30px;
+            width: 350px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 1001;
+            overflow: hidden;
+        }
+
+        .whatsapp-chat.active {
+            display: block;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .chat-header {
+            background: #25D366;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-header-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .close-chat {
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .chat-body {
+            padding: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            background: #ece5dd;
+        }
+
+        .chat-message {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            max-width: 85%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .chat-message.bot {
+            background: #DCF8C6;
+            margin-left: auto;
+        }
+
+        .chat-options {
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+
+        .chat-option-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 8px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .chat-option-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .chat-option-btn:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-chat {
+                width: calc(100% - 40px);
+                right: 20px;
+                bottom: 150px;
+            }
+
+            .whatsapp-button {
+                right: 20px;
+                bottom: 80px;
+            }
+        }
+
         .discount-banner {
             background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
             color: #c44569;
@@ -321,13 +522,25 @@
 </head>
 <body>
     <div class="discount-banner">
-        🔥 SUPER DESCONTO HOJE! 50% OFF - ESTOQUE LIMITADO! 🔥
+        🔥 SUPER DESCONTO HOJE! 61% OFF - DE R$ 97 POR APENAS R$ 37,99! 🔥
     </div>
 
     <header>
+        <!-- ============================================
+             VÍDEO DE FUNDO DO HEADER - CHÁ SENDO SERVIDO
+             Já está configurado com um vídeo gratuito!
+             Se quiser trocar: visite coverr.co ou mixkit.co
+             ============================================ -->
+        <video autoplay muted loop playsinline>
+            <source src="https://coverr.co/videos/pouring-tea--2dFT00a0SM/download" type="video/mp4">
+            <!-- Vídeo alternativo caso o primeiro não carregue -->
+            <source src="https://assets.mixkit.co/videos/35815/35815-720.mp4" type="video/mp4">
+        </video>
+        
         <h1>🌿 Chá Secreto 🍵</h1>
-        <p>Transforme Sua Vida com o Poder da Natureza</p>
-        <div class="badge">✨ FÓRMULA 100% NATURAL ✨</div>
+        <p>Aprenda a Preparar o Chá Que Está Transformando Milhares de Vidas</p>
+        <div class="badge">✨ 100% ONLINE E PRÁTICO ✨</div>
+        <div class="badge" style="background: #4CAF50; margin-top: 10px;">🛡️ GARANTIA DE 7 DIAS - 100% DO SEU DINHEIRO DE VOLTA</div>
     </header>
 
     <div class="container">
@@ -340,51 +553,91 @@
                      ============================================ -->
                 <iframe src="https://www.youtube.com/embed/Kvo3kbGCABI" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
             </div>
+            <div style="margin-top: 30px; padding: 25px; background: #fff9e6; border-radius: 15px; border-left: 5px solid #ffd700;">
+                <h3 style="color: #c44569; margin-bottom: 15px; font-size: 1.5em;">🛡️ ACESSO SEM RISCO - GARANTIA TOTAL!</h3>
+                <p style="font-size: 1.1em; line-height: 1.6; color: #333;">
+                    <strong>Garantia Incondicional de 7 Dias!</strong><br>
+                    Se você acessar o curso e não ficar satisfeita, não sentir que pode transformar sua vida com as receitas, nós devolvemos TODO o seu dinheiro! Sem perguntas, sem burocracia. É simples assim! 💰✨
+                </p>
+            </div>
         </div>
 
         <div class="cta-section">
-            <h2 style="color: #c44569; font-size: 2.5em; margin-bottom: 20px;">Garanta o Seu Agora! 💖</h2>
-            <p style="font-size: 1.2em; margin-bottom: 30px; color: #666;">Aproveite nosso desconto exclusivo antes que acabe!</p>
+            <h2 style="color: #c44569; font-size: 2.5em; margin-bottom: 20px;">Por Que Você Ainda Está Aqui? 💭</h2>
+            <p style="font-size: 1.3em; margin-bottom: 20px; color: #666; line-height: 1.8;">
+                <strong>Eu sei o que você está pensando...</strong><br><br>
+                
+                "Será que funciona mesmo comigo?"<br>
+                "E se eu gastar meu dinheiro e não der resultado?"<br>
+                "Já tentei tantas coisas que não funcionaram..."<br><br>
+                
+                <span style="color: #c44569; font-size: 1.2em;">Eu entendo perfeitamente sua dúvida! 💖</span>
+            </p>
+            
+            <div style="background: #fff5f9; padding: 30px; border-radius: 15px; margin: 30px 0; border-left: 5px solid #ff6b9d;">
+                <h3 style="color: #c44569; font-size: 1.8em; margin-bottom: 20px;">Mas deixa eu te contar uma coisa...</h3>
+                <p style="font-size: 1.2em; color: #333; line-height: 1.8; text-align: left;">
+                    ✅ <strong>Mais de 50.000 alunas</strong> já transformaram seus corpos com o método do curso<br><br>
+                    ✅ São <strong>receitas 100% naturais</strong> - sem química, sem riscos, tudo explicado passo a passo<br><br>
+                    ✅ Você tem <strong>7 DIAS DE GARANTIA TOTAL</strong> - se não gostar, devolvemos seu dinheiro!<br><br>
+                    ✅ <strong>Acesso imediato e vitalício</strong> - assista quando e onde quiser, para sempre!<br><br>
+                    ✅ O preço promocional de <strong>R$ 37,99</strong> é <strong>HOJE</strong> - amanhã volta para R$ 97,00<br><br>
+                </p>
+                
+                <div style="background: #ffd700; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <p style="font-size: 1.3em; color: #c44569; font-weight: bold;">
+                        🤔 Pensa comigo: Qual é o REAL risco?<br><br>
+                        NENHUM! Se não gostar do curso, você recebe seu dinheiro de volta!<br><br>
+                        Mas se você NÃO tentar... vai continuar com o mesmo corpo,<br>
+                        a mesma insatisfação, a mesma ansiedade...<br><br>
+                        <span style="font-size: 1.4em;">Vale a pena perder essa chance? 💔</span>
+                    </p>
+                </div>
+            </div>
+            
+            <h3 style="color: #c44569; font-size: 2em; margin: 30px 0 20px;">Garanta Seu Acesso Agora e Comece Hoje Mesmo! 🌟</h3>
             
             <!-- ============================================
                  BOTÕES DE COMPRA - COLE SEUS LINKS AQUI
                  Substitua o # pelos links reais de checkout
                  ============================================ -->
-            <a href="https://pay.kiwify.com.br/umvXfs8?afid=E7s38DxV" class="cta-button">🛒 COMPRAR AGORA</a>
-            <a href="https://pay.kiwify.com.br/umvXfs8?afid=E7s38DxV" class="cta-button" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);">💳 PAGAMENTO SEGURO</a>
+            <a href="https://pay.kiwify.com.br/q9hAvZo?afid=E7s38DxV" class="cta-button">🛒 SIM! QUERO ACESSO IMEDIATO AO CURSO!</a>
+            <a href="https://pay.kiwify.com.br/q9hAvZo?afid=E7s38DxV" class="cta-button" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);">💳 GARANTIR MINHA VAGA COM DESCONTO</a>
+            
+            <p style="margin-top: 20px; font-size: 1.1em; color: #999;">🔒 Ambiente 100% Seguro | 📱 Acesso Imediato | 💰 7 Dias de Garantia</p>
         </div>
 
-        <h2 style="text-align: center; color: #c44569; font-size: 2.5em; margin: 50px 0 30px;">✨ Benefícios Incríveis ✨</h2>
+        <h2 style="text-align: center; color: #c44569; font-size: 2.5em; margin: 50px 0 30px;">✨ O Que Você Vai Aprender ✨</h2>
         
         <div class="benefits">
             <div class="benefit-card">
-                <h3>🔥 Acelera o Metabolismo</h3>
-                <p>Propriedades termogênicas que queimam gordura 24 horas por dia, transformando seu corpo em uma máquina de queimar calorias!</p>
+                <h3>📚 Receita Completa do Chá</h3>
+                <p>Aprenda passo a passo como preparar o Chá Secreto com os ingredientes certos nas medidas exatas para acelerar seu metabolismo 24h!</p>
             </div>
             
             <div class="benefit-card">
-                <h3>💧 Elimina o Inchaço</h3>
-                <p>Ação diurética poderosa que libera o excesso de líquidos retidos, revelando uma silhueta mais esculpida e definida!</p>
+                <h3>⏰ Melhor Horário Para Tomar</h3>
+                <p>Descubra os horários estratégicos para tomar o chá e potencializar a queima de gordura e eliminar o inchaço rapidamente!</p>
             </div>
             
             <div class="benefit-card">
-                <h3>💖 Controla a Ansiedade</h3>
-                <p>Acalma a ansiedade e controla os desejos impulsivos por comida, trazendo paz para sua alma!</p>
+                <h3>🛒 Lista de Ingredientes</h3>
+                <p>Tenha acesso à lista completa dos ingredientes naturais e onde encontrá-los facilmente no mercado ou farmácia!</p>
             </div>
             
             <div class="benefit-card">
-                <h3>✨ Pele, Cabelo e Unhas</h3>
-                <p>Deixa você radiante com aquele brilho natural de saúde de dentro para fora!</p>
+                <h3>💊 Dosagem e Frequência</h3>
+                <p>Aprenda a dosagem correta e quantas vezes por dia tomar para controlar a ansiedade e os desejos por comida!</p>
             </div>
             
             <div class="benefit-card">
-                <h3>📉 Controla Açúcar e Triglicérides</h3>
-                <p>Revoluciona sua saúde, diminuindo o açúcar do sangue e controlando o triglicérides!</p>
+                <h3>📋 Dicas de Nutrição</h3>
+                <p>Bônus exclusivo com dicas de alimentação que vão potencializar ainda mais seus resultados com o chá!</p>
             </div>
             
             <div class="benefit-card">
-                <h3>⚡ Mais Energia e Leveza</h3>
-                <p>Sinta-se mais leve, energizada e radiante a cada gole deste abraço reconfortante!</p>
+                <h3>💬 Suporte Exclusivo</h3>
+                <p>Acesso a grupo exclusivo para tirar dúvidas e compartilhar sua jornada com outras mulheres que estão transformando suas vidas!</p>
             </div>
         </div>
 
@@ -401,8 +654,8 @@
                         </div>
                         <span class="verified-badge">✓ Compra Verificada</span>
                     </div>
-                    <p>"Perdi 8kg em 2 meses e minha pele está incrível! O Chá Secreto mudou minha vida completamente. Não tenho mais ansiedade e durmo muito melhor. Meus exames de sangue melhoraram muito, o médico ficou impressionado! Recomendo de olhos fechados! 💖"</p>
-                    <p class="testimonial-date">📅 Avaliado em 15 de novembro de 2025</p>
+                    <p>"Perdi 8kg em 2 meses seguindo as receitas do curso! O passo a passo é muito claro e fácil de seguir. Não tenho mais ansiedade e durmo muito melhor. Meus exames de sangue melhoraram muito, o médico ficou impressionado! Recomendo de olhos fechados! 💖"</p>
+                    <p class="testimonial-date">📅 Avaliado em 05 de dezembro de 2024</p>
                 </div>
             </div>
             
@@ -412,12 +665,12 @@
                     <div class="testimonial-header">
                         <div>
                             <div class="stars">⭐⭐⭐⭐⭐</div>
-                            <p><strong>Ana Paula Rodrigues, 32 anos</strong></p>
+                            <p><strong>Ana Paula Rodrigues, 42 anos</strong></p>
                         </div>
                         <span class="verified-badge">✓ Compra Verificada</span>
                     </div>
-                    <p>"Finalmente consegui controlar minha ansiedade e os desejos por doces! Estou me sentindo mais leve e feliz. Meu triglicérides que estava altíssimo normalizou. Já perdi 6kg e 5cm de cintura. Esse chá é um milagre da natureza! Estou na terceira caixinha e não vou parar mais! 🌿"</p>
-                    <p class="testimonial-date">📅 Avaliado em 22 de novembro de 2025</p>
+                    <p>"Finalmente consegui controlar minha ansiedade e os desejos por doces seguindo as orientações do curso! Já perdi 6kg e 5cm de cintura. O método é incrível e funciona mesmo! Estou fazendo o chá todos os dias e não vou parar mais! 🌿"</p>
+                    <p class="testimonial-date">📅 Avaliado em 06 de dezembro de 2024</p>
                 </div>
             </div>
             
@@ -431,8 +684,8 @@
                         </div>
                         <span class="verified-badge">✓ Compra Verificada</span>
                     </div>
-                    <p>"Meu cabelo e unhas nunca estiveram tão fortes! E eliminei todo o inchaço em apenas 2 semanas. Acordava inchada todos os dias e agora não tenho mais esse problema. Minha energia aumentou muito, estou mais disposta para tudo. Produto maravilhoso, já indiquei para todas as minhas amigas! ✨"</p>
-                    <p class="testimonial-date">📅 Avaliado em 28 de novembro de 2025</p>
+                    <p>"Eliminei todo o inchaço em apenas 2 semanas! O curso é muito completo, ensina tudo direitinho. Meu cabelo e unhas também melhoraram muito. Minha energia aumentou, estou mais disposta para tudo. Curso maravilhoso, já indiquei para todas as minhas amigas! ✨"</p>
+                    <p class="testimonial-date">📅 Avaliado há 2 dias</p>
                 </div>
             </div>
 
@@ -442,12 +695,12 @@
                     <div class="testimonial-header">
                         <div>
                             <div class="stars">⭐⭐⭐⭐⭐</div>
-                            <p><strong>Carla Santos, 30 anos</strong></p>
+                            <p><strong>Carla Santos, 38 anos</strong></p>
                         </div>
                         <span class="verified-badge">✓ Compra Verificada</span>
                     </div>
-                    <p>"Estava com o açúcar no sangue descontrolado e em 1 mês já vi diferença nos exames! Meu médico perguntou o que eu estava fazendo diferente. Além disso, perdi medidas e me sinto muito mais leve. O melhor é que é tudo natural, sem química! Vale cada centavo! 🙏"</p>
-                    <p class="testimonial-date">📅 Avaliado em 02 de dezembro de 2025</p>
+                    <p>"Estava com o açúcar no sangue descontrolado e em 1 mês já vi diferença nos exames seguindo o curso! Meu médico perguntou o que eu estava fazendo diferente. As aulas são práticas e fáceis de entender. Vale muito a pena investir na sua saúde! 🙏"</p>
+                    <p class="testimonial-date">📅 Avaliado há 5 dias</p>
                 </div>
             </div>
 
@@ -461,8 +714,8 @@
                         </div>
                         <span class="verified-badge">✓ Compra Verificada</span>
                     </div>
-                    <p>"Esse chá é divino! Tomando há 3 semanas e já eliminei 4kg. Minha barriga desincha a olhos vistos, minha digestão melhorou muito. Não tenho mais aquela sensação de peso depois de comer. E o melhor: minha pele está radiante, várias pessoas comentaram! Estou viciada (no bom sentido)! 😍"</p>
-                    <p class="testimonial-date">📅 Avaliado em 04 de dezembro de 2025<\p>
+                    <p>"O curso é divino! Em 3 semanas já eliminei 4kg seguindo o método ensinado. O passo a passo é super detalhado. Minha pele está radiante, várias pessoas comentaram! O acesso é vitalício, posso rever as aulas sempre que precisar. Estou viciada! 😍"</p>
+                    <p class="testimonial-date">📅 Avaliado há 3 dias</p>
                 </div>
             </div>
 
@@ -476,21 +729,31 @@
                         </div>
                         <span class="verified-badge">✓ Compra Verificada</span>
                     </div>
-                    <p>"Comprei sem muita expectativa, mas fui surpreendida! Em 15 dias já notei minha roupa mais folgada. Meu intestino que sempre foi preso regulou completamente. Durmo melhor, acordo mais disposta e minha TPM melhorou muito! Já comprei mais 3 caixas. Produto top demais! 💚"</p>
-                    <p class="testimonial-date">📅 Avaliado em 05 de dezembro de 2025</p>
+                    <p>"Comprei sem muita expectativa, mas fui surpreendida! Em 15 dias já notei minha roupa mais folgada aplicando o que aprendi. As videoaulas são excelentes! Durmo melhor, acordo mais disposta e minha TPM melhorou muito! Melhor investimento que já fiz! 💚"</p>
+                    <p class="testimonial-date">📅 Avaliado hoje</p>
                 </div>
             </div>
         </div>
 
         <div class="cta-section" style="background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%); color: white;">
             <h2 style="color: white; font-size: 2.5em; margin-bottom: 20px;">🎁 Oferta Especial Por Tempo Limitado!</h2>
-            <p style="font-size: 1.5em; margin-bottom: 15px; color: white;">50% DE DESCONTO</p>
-            <p style="font-size: 1.2em; margin-bottom: 30px; color: white;">De R$ 197,00 por apenas R$ 97,00</p>
+            <p style="font-size: 1.5em; margin-bottom: 15px; color: white;">61% DE DESCONTO + ACESSO IMEDIATO</p>
+            <p style="font-size: 1.2em; margin-bottom: 30px; color: white;">De R$ 97,00 por apenas <span style="font-size: 1.5em; font-weight: bold; color: #ffd700;">R$ 37,99</span></p>
+            
+            <div style="background: rgba(255,255,255,0.2); padding: 20px; border-radius: 15px; margin: 20px 0;">
+                <h3 style="color: #ffd700; font-size: 1.8em; margin-bottom: 10px;">🛡️ RISCO ZERO PARA VOCÊ!</h3>
+                <p style="font-size: 1.2em; line-height: 1.6;">
+                    Você tem <strong>7 DIAS DE GARANTIA</strong> para acessar todo o conteúdo.<br>
+                    Se não gostar, devolvemos 100% do seu dinheiro!<br>
+                    Sem perguntas, sem complicação. Simples assim! 💰
+                </p>
+            </div>
             
             <!-- ============================================
                  BOTÕES DE COMPRA EXTRAS - COLE SEUS LINKS AQUI
                  ============================================ -->
-            <a href="https://pay.kiwify.com.br/umvXfs8?afid=E7s38DxV" class="cta-button" style="background: white; color: #c44569;">🎯 QUERO APROVEITAR AGORA!</a>
+            <a href="https://pay.kiwify.com.br/q9hAvZo?afid=E7s38DxV" class="cta-button" style="background: white; color: #c44569;">🎯 SIM! QUERO ACESSO IMEDIATO COM GARANTIA!</a>
+            <p style="margin-top: 15px; font-size: 1.1em;">⚡ <strong style="color: #ffd700;">Acesso vitalício</strong> + Suporte exclusivo!</p>
         </div>
     </div>
 
@@ -506,8 +769,52 @@
         </div>
     </div>
 
+    <!-- ============================================
+         BOTÃO FLUTUANTE DO WHATSAPP
+         ============================================ -->
+    <div class="whatsapp-button" id="whatsappBtn" onclick="toggleChat()">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0C7.164 0 0 7.163 0 16c0 2.828.736 5.483 2.018 7.785L.695 29.695l6.13-1.607A15.913 15.913 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm9.403 22.94c-.39 1.1-2.295 2.068-3.155 2.163-.835.093-1.586.378-5.34-1.145-4.784-1.938-7.865-6.815-8.103-7.13-.237-.316-1.92-2.558-1.92-4.88 0-2.322 1.215-3.465 1.646-3.937.43-.473.937-.59 1.25-.59.315 0 .63.002.905.017.29.014.68-.11 1.063.81.394 1.002 1.35 3.297 1.468 3.537.118.24.197.522.04.838-.157.316-.236.512-.473.788-.237.276-.497.617-.71.83-.237.236-.484.492-.208.965.276.473 1.225 2.02 2.63 3.273 1.805 1.61 3.326 2.11 3.8 2.347.474.236.75.197 1.026-.118.276-.316 1.184-1.382 1.5-1.855.316-.473.63-.394 1.065-.236.435.157 2.76 1.303 3.234 1.54.473.236.788.354.905.552.118.197.118 1.145-.276 2.245z"/>
+        </svg>
+    </div>
+
+    <!-- Chat do WhatsApp -->
+    <div class="whatsapp-chat" id="whatsappChat">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <div class="chat-avatar">🌿</div>
+                <div>
+                    <strong>Chá Secreto</strong><br>
+                    <small>Normalmente responde em minutos</small>
+                </div>
+            </div>
+            <span class="close-chat" onclick="toggleChat()">×</span>
+        </div>
+        
+        <div class="chat-body" id="chatBody">
+            <div class="chat-message">
+                Olá! 👋 Seja bem-vinda ao <strong>Chá Secreto</strong>!<br><br>
+                Como posso te ajudar hoje? Escolha uma opção abaixo:
+            </div>
+        </div>
+        
+        <div class="chat-options" id="chatOptions">
+            <button class="chat-option-btn" onclick="sendMessage('preco')">💰 Qual o preço do curso?</button>
+            <button class="chat-option-btn" onclick="sendMessage('funciona')">✨ Como funciona o curso?</button>
+            <button class="chat-option-btn" onclick="sendMessage('garantia')">🛡️ Tem garantia?</button>
+            <button class="chat-option-btn" onclick="sendMessage('acesso')">📱 Como acesso as aulas?</button>
+            <button class="chat-option-btn" onclick="sendMessage('resultados')">⏰ Quanto tempo para ver resultados?</button>
+            <button class="chat-option-btn" onclick="sendMessage('ingredientes')">🛒 Onde compro os ingredientes?</button>
+            <button class="chat-option-btn" onclick="sendMessage('pagamento')">💳 Formas de pagamento</button>
+            <button class="chat-option-btn" onclick="sendMessage('contraindicacao')">⚠️ Tem contraindicação?</button>
+            <button class="chat-option-btn" onclick="sendMessage('iniciante')">🤔 Sou iniciante, consigo fazer?</button>
+            <button class="chat-option-btn" onclick="sendMessage('saude')">💊 Tenho problema de saúde, posso?</button>
+            <button class="chat-option-btn" onclick="sendMessage('duracao')">⏱️ Quanto tempo dura o curso?</button>
+        </div>
+    </div>
+
     <footer>
-        <p>🌿 Chá Secreto - Transformando vidas através da natureza 🍵</p>
+        <p>🌿 Chá Secreto - Curso Online - Transformando vidas através da natureza 🍵</p>
         <p style="margin-top: 10px; font-size: 0.9em;">© 2024 - Todos os direitos reservados</p>
     </footer>
 
@@ -585,13 +892,106 @@
             }, 5000);
         }
 
-        // Mostrar notificação a cada 15 segundos
+        // Mostrar notificação a cada 10 segundos
         setInterval(() => {
             showNotification();
-        }, 15000);
+        }, 10000);
 
         // Mostrar primeira notificação após 3 segundos
         setTimeout(showNotification, 3000);
+
+        // ============================================
+        // SISTEMA DE CHAT DO WHATSAPP
+        // ============================================
+        
+        function toggleChat() {
+            const chat = document.getElementById('whatsappChat');
+            chat.classList.toggle('active');
+        }
+
+        // Respostas automáticas do bot
+        const botResponses = {
+            preco: "💰 <strong>Preço Promocional:</strong><br><br>De R$ 97,00 por apenas <strong style='font-size: 1.3em; color: #25D366;'>R$ 37,99</strong> (61% OFF)!<br><br>✅ Acesso vitalício<br>✅ Suporte exclusivo<br>✅ 7 dias de garantia<br><br>🎁 Promoção válida apenas HOJE!",
+            
+            funciona: "✨ <strong>Como funciona:</strong><br><br>📚 Videoaulas práticas passo a passo<br>🍵 Receita completa do Chá Secreto<br>⏰ Melhor horário para tomar<br>🛒 Lista de ingredientes<br>💊 Dosagem correta<br>📋 Bônus: Dicas de nutrição<br>💬 Grupo de suporte exclusivo<br><br>Tudo 100% online! Você assiste quando quiser!",
+            
+            garantia: "🛡️ <strong>Garantia Total:</strong><br><br>Você tem <strong>7 DIAS</strong> para acessar todo o conteúdo!<br><br>Se não gostar ou não se adaptar, devolvemos <strong>100% do seu dinheiro</strong>!<br><br>Sem perguntas, sem burocracia. É só solicitar o reembolso e pronto! 💰",
+            
+            acesso: "📱 <strong>Acesso às Aulas:</strong><br><br>1️⃣ Após a compra, você recebe login e senha no email<br>2️⃣ Acessa nossa plataforma de qualquer dispositivo<br>3️⃣ Assiste no celular, tablet ou computador<br>4️⃣ Pode pausar e voltar quando quiser<br><br>🔓 Acesso <strong>VITALÍCIO</strong> - para sempre!",
+            
+            resultados: "⏰ <strong>Resultados:</strong><br><br>📊 Depoimentos reais:<br>• 2 semanas: Redução do inchaço<br>• 1 mês: 4-6kg perdidos em média<br>• 2 meses: 8-10kg perdidos<br><br>✨ Cada corpo é único, mas você verá mudanças rápidas seguindo o método!<br><br>💚 E tem garantia de 7 dias!",
+            
+            ingredientes: "🛒 <strong>Onde comprar os ingredientes:</strong><br><br>✅ Farmácias comuns<br>✅ Lojas de produtos naturais<br>✅ Supermercados<br>✅ Internet (mercado livre, etc)<br><br>💰 Custo médio: R$ 30-50 para 1 mês de chá<br><br>📋 No curso você recebe a lista completa com nomes e onde encontrar cada um!",
+            
+            pagamento: "💳 <strong>Formas de Pagamento:</strong><br><br>✅ <strong>Cartão de Crédito</strong><br>• Parcelamento em até 12x<br>• Acesso imediato após aprovação<br><br>✅ <strong>PIX</strong><br>• Desconto adicional<br>• Acesso em até 5 minutos<br><br>✅ <strong>Boleto</strong><br>• Compensação em 1-2 dias úteis<br><br>🔒 Pagamento 100% seguro e criptografado!",
+            
+            contraindicacao: "⚠️ <strong>Contraindicações:</strong><br><br>❌ <strong>Não recomendado para:</strong><br>• Gestantes<br>• Lactantes (amamentando)<br>• Menores de 18 anos<br>• Pessoas com problemas renais graves<br><br>✅ Se você tem alguma condição de saúde específica, consulte seu médico antes de iniciar!<br><br>💚 O chá é 100% natural, mas é sempre bom ter acompanhamento médico!",
+            
+            iniciante: "🤔 <strong>Para Iniciantes:</strong><br><br>✅ <strong>PERFEITO para você!</strong><br><br>O curso foi feito especialmente para quem:<br>• Nunca fez um chá assim<br>• Não tem experiência<br>• Quer algo simples e prático<br><br>📚 Tudo explicado do ZERO!<br>• Passo a passo detalhado<br>• Videoaulas claras<br>• Suporte para dúvidas<br><br>😊 Qualquer pessoa consegue fazer!",
+            
+            saude: "💊 <strong>Problemas de Saúde:</strong><br><br>⚠️ Se você tem:<br>• Diabetes<br>• Pressão alta ou baixa<br>• Problemas de tireoide<br>• Usa medicação contínua<br>• Qualquer condição crônica<br><br>👨‍⚕️ <strong>Recomendamos fortemente:</strong><br>Consulte seu médico antes de iniciar o uso do chá!<br><br>💚 O chá é natural, mas cada organismo é único. Sua saúde vem em primeiro lugar!",
+            
+            duracao: "⏱️ <strong>Duração do Curso:</strong><br><br>📚 <strong>Conteúdo Total:</strong><br>• 15 videoaulas<br>• Aproximadamente 2 horas de conteúdo<br>• Materiais complementares em PDF<br><br>⏰ <strong>Você pode:</strong><br>• Assistir tudo em 1 dia<br>• Ou ir no seu ritmo<br>• Pausar e voltar quando quiser<br><br>🔓 Acesso VITALÍCIO - assista quantas vezes precisar!"
+        };
+
+        function sendMessage(option) {
+            const chatBody = document.getElementById('chatBody');
+            
+            // Adiciona mensagem da usuária
+            const userMessage = document.createElement('div');
+            userMessage.className = 'chat-message bot';
+            userMessage.style.textAlign = 'right';
+            
+            const optionTexts = {
+                preco: '💰 Qual o preço do curso?',
+                funciona: '✨ Como funciona o curso?',
+                garantia: '🛡️ Tem garantia?',
+                acesso: '📱 Como acesso as aulas?',
+                resultados: '⏰ Quanto tempo para ver resultados?',
+                ingredientes: '🛒 Onde compro os ingredientes?',
+                pagamento: '💳 Formas de pagamento',
+                contraindicacao: '⚠️ Tem contraindicação?',
+                iniciante: '🤔 Sou iniciante, consigo fazer?',
+                saude: '💊 Tenho problema de saúde, posso?',
+                duracao: '⏱️ Quanto tempo dura o curso?'
+            };
+            
+            userMessage.innerHTML = optionTexts[option];
+            chatBody.appendChild(userMessage);
+            
+            // Simula digitação
+            setTimeout(() => {
+                const botMessage = document.createElement('div');
+                botMessage.className = 'chat-message';
+                botMessage.innerHTML = botResponses[option];
+                chatBody.appendChild(botMessage);
+                chatBody.scrollTop = chatBody.scrollHeight;
+                
+                // Adiciona botão "Voltar ao menu"
+                setTimeout(() => {
+                    const backBtn = document.createElement('div');
+                    backBtn.innerHTML = '<button onclick="resetChat()" style="width: 100%; padding: 10px; margin-top: 15px; background: #ff6b9d; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">↩️ Voltar ao Menu</button>';
+                    chatBody.appendChild(backBtn);
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }, 1000);
+                
+            }, 800);
+        }
+
+        function resetChat() {
+            const chatBody = document.getElementById('chatBody');
+            chatBody.innerHTML = '<div class="chat-message">Olá! 👋 Seja bem-vinda ao <strong>Chá Secreto</strong>!<br><br>Como posso te ajudar hoje? Escolha uma opção abaixo:</div>';
+        }
+
+        // Fecha chat ao clicar fora
+        document.addEventListener('click', function(event) {
+            const chat = document.getElementById('whatsappChat');
+            const btn = document.getElementById('whatsappBtn');
+            
+            if (!chat.contains(event.target) && !btn.contains(event.target)) {
+                chat.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>
